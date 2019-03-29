@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.13)
+project(Proyecto1_)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(Proyecto1_ main.cpp Lista.cpp Lista.h Nodo.cpp Nodo.h)
