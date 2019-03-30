@@ -10,7 +10,7 @@ int size_six = 4;
 
 Diccionario::Diccionario() {}
 
-std::string Diccionario::hacerString(Lista lista){ //esta funcion va dentro del diccionario
+std::string Diccionario::hacerString(Lista lista){ //esta funcion va dentro del cliente
     Nodo *temp;
     temp = lista.getHead();
     std::string palabra("");
@@ -22,7 +22,7 @@ std::string Diccionario::hacerString(Lista lista){ //esta funcion va dentro del 
     return palabra;
 }
 
-bool Diccionario::compararString(std::string s1){
+bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionario
     std::cout << "Comparando palabra" <<std::endl;
     std::string s2("ver");
     if (s1.compare(s2)==0){
@@ -32,7 +32,6 @@ bool Diccionario::compararString(std::string s1){
         std::cout << "No son iguales" <<std::endl;
         return false;
     }
-
 
 }
 int Diccionario::calcularPuntaje(Lista lista) {

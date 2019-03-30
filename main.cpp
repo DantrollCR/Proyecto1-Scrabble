@@ -3,7 +3,8 @@
 #include "Diccionario.h"
 
 int main() {
-    Lista *ls = new Lista();
+    Lista *ls = new Lista(); //la lista es recibida mediante el socket
+    //Lista *ls = listarecibida del socket
     Diccionario *dic = new Diccionario();
 
     //ls->addFirst("Daniel");
