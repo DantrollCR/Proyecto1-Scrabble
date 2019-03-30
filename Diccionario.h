@@ -24,6 +24,8 @@ public:
     std::string hacerString(Lista lista);
 
     bool compararString(std::string s1);
+    int calcularPuntaje(Lista Lista);
+
 };
 
 

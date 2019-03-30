@@ -8,12 +8,14 @@ int main() {
 
     //ls->addFirst("Daniel");
 
-    ls->addLast("v");//agrega nodos a la lista
-    ls->addLast("e");
-    ls->addLast("r");
+    ls->addLast("a");//agrega nodos a la lista
+    ls->addLast("b");
+    ls->addLast("c");
 
     //ls->vernodos();
     dic->compararString(dic->hacerString(*ls));
+    dic->calcularPuntaje(*ls);
+
 
 
     //std::cout << ls->hacerString() << std::endl;
