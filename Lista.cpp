@@ -53,33 +53,6 @@ void Lista::addLast(char *dato){
 /**
  * @brief Simple implementacion de una funcion que muestra los valores de cada nodo en la lista.
  */
-
-
-bool Lista::compararString(std::string s1){
-    std::cout << "Hello" <<std::endl;
-    std::string s2("bcd");
-    if (s1.compare(s2)==0){
-        std::cout << "Es verdá son iguales" <<std::endl;
-        return true;
-    } else{
-        std::cout << "No son iguales" <<std::endl;
-        return false;
-    }
-
-
-}
-
-std::string Lista::hacerString(){ //esta funcion va dentro del diccionario
-    Nodo *temp;
-    temp = head;
-    std::string palabra("");
-    while (temp != NULL) {
-        palabra.append(temp->letra);
-
-        temp = temp->next;
-    }
-    return palabra;
-}
 void Lista::vernodos() {
     Nodo *temp;
     temp = head;
@@ -129,4 +102,12 @@ void Lista::delete_last() {
         delete (ptr);
     }
 
+}
+
+Nodo *Lista::getHead() const {
+    return head;
+}
+
+void Lista::setHead(Nodo *head) {
+    Lista::head = head;
 }

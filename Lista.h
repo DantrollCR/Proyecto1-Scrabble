@@ -23,10 +23,6 @@ public:
 
     void delete_first();
 
-    bool compararString(std::string s1);
-
-    std::string hacerString();
-
     void addFirst(char *valor);
 
     void addLast(char *valor);
@@ -41,6 +37,12 @@ public:
     void printCollector();
 
     void deleteCollectorFirst();
+
+    Nodo *getHead() const;
+
+    void setHead(Nodo *head);
+
+
 //
 //    void deleteCollectorEnd();
 
