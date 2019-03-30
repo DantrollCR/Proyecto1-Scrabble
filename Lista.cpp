@@ -57,7 +57,7 @@ void Lista::addLast(char *dato){
 
 bool Lista::compararString(std::string s1){
     std::cout << "Hello" <<std::endl;
-    std::string s2("abcd");
+    std::string s2("bcd");
     if (s1.compare(s2)==0){
         std::cout << "Es verdá son iguales" <<std::endl;
         return true;
@@ -69,7 +69,7 @@ bool Lista::compararString(std::string s1){
 
 }
 
-std::string Lista::hacerString(){
+std::string Lista::hacerString(){ //esta funcion va dentro del diccionario
     Nodo *temp;
     temp = head;
     std::string palabra("");

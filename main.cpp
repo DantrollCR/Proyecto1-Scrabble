@@ -4,15 +4,16 @@
 int main() {
     Lista *ls = new Lista();
 
-    ls->addFirst("Daniel");
-    ls->addLast("b");
-    ls->addLast("c");
-    ls->addLast("d");
+    //ls->addFirst("Daniel");
 
-    ls->vernodos();
+    ls->addLast("v");//agrega nodos a la lista
+    ls->addLast("e");
+    ls->addLast("r");
+
+    //ls->vernodos();
     ls->compararString(ls->hacerString());
 
 
-    std::cout << ls->hacerString() << std::endl;
+    //std::cout << ls->hacerString() << std::endl;
     return 0;
 }
