@@ -34,7 +34,7 @@ void Lista::addFirst(char *dato) {
  * en el Nodo.
  * @param valor
  */
-void Lista::addLast(char *dato){
+void Lista::addLast(std::string dato) {
     Nodo *temp = new Nodo;
     temp->letra = dato;
     temp->next = NULL;

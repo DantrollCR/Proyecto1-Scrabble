@@ -7,9 +7,12 @@
 #include <iostream>
 #include <cstring>
 #include <cstdio>
+#include "json.hpp"
 
 char *five_pts[] = {"V", "E", "R"};
 int size_six = 4;
+
+using json = nlohmann::json;
 
 
 Diccionario::Diccionario() {}
@@ -26,6 +29,29 @@ std::string Diccionario::hacerString(Lista lista){ //esta funcion va dentro del 
     return palabra;
 }
 
+void Diccionario::generateJson(Lista lista) {
+    json j1;
+    Nodo *temp;
+    temp = lista.getHead();
+    int i = 0;
+    while (temp != NULL) {
+        std::string s = std::to_string(i);
+        std::string s1(temp->letra);
+        j1[s] = temp->letra;
+        temp = temp->next;
+        i++;
+    }
+    std::cout << j1.dump(2) << std::endl;
+}
+
+void Diccionario::generateList(json j1) {
+    int i = 0;
+    std::string s = std::to_string(i);
+    while (j1[s] != false) {
+        std::cout << j1[s] << std::endl;
+    }
+
+}
 bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionario
     std::cout << "Comparando palabra" <<std::endl;
     std::string s2("VER");
@@ -39,10 +65,6 @@ bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionari
 
 }
 
-bool diezPts(char *letra) {
-
-
-}
 
 void cuatroPts(std::string s1, int &ptrPun) {
     for (int i = 0; i < 3; ++i) {
@@ -57,6 +79,7 @@ void cuatroPts(std::string s1, int &ptrPun) {
 
 
 }
+
 int Diccionario::calcularPuntaje(Lista lista) {
     int puntaje = 0;
     int &puntR = puntaje;

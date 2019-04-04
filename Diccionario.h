@@ -9,6 +9,10 @@
 #include <string>
 #include <iostream>
 #include "Lista.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 
 class Diccionario {
 
@@ -21,8 +25,10 @@ public:
 
     Diccionario(); //constructor
 
+    void generateList(json j1);
     std::string hacerString(Lista lista);
 
+    void generateJson(Lista lista);
     bool compararString(std::string s1);
     int calcularPuntaje(Lista Lista);
 

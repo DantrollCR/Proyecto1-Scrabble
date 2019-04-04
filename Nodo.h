@@ -11,7 +11,7 @@
 class Nodo {
 public:
 
-    char* letra ;
+    std::string letra;
     Nodo *next;
 
     int getDato() const;

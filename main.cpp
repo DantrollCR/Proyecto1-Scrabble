@@ -1,7 +1,12 @@
 #include <iostream>
 #include <cstring>
+#include <iomanip>
+#include <fstream>
 #include "Lista.h"
 #include "Diccionario.h"
+#include "json.hpp"
+
+using json = nlohmann::json;
 
 int main() {
     Lista *ls = new Lista(); //la lista es recibida mediante el socket
@@ -20,10 +25,20 @@ int main() {
     ls->addLast("O");
 
 
+    json j;
+    j["1"] = "H";
 
+    std::ofstream s("pretty.json");
+    s << std::setw(4) << j << std::endl;
+
+
+    ls->addLast(j["1"]);
+    dic->generateJson(*ls);
+    dic->generateList(j);
     //ls->vernodos();
     dic->compararString(dic->hacerString(*ls));
     dic->calcularPuntaje(*ls);
+
 
 
 

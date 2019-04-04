@@ -25,7 +25,7 @@ public:
 
     void addFirst(char *valor);
 
-    void addLast(char *valor);
+    void addLast(std::string valor);
 
     void addCollectorEnd(int *address);
 
