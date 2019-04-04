@@ -39,7 +39,8 @@ json Diccionario::generateJson(Lista lista) {
     while (temp != NULL) {
         std::string s = std::to_string(i);
         std::string s1(temp->letra);
-        j1[s] = temp->letra;
+        j1[s] = {{"Letra", temp->letra},
+                 {"Posi",  {1, 2}}};
         temp = temp->next;
         i++;
     }
@@ -53,7 +54,7 @@ Lista *Diccionario::generateList(json j1) {
 
     for (int j = 1; j <= s + 1; ++j) {
         std::string s = std::to_string(j);
-        temp->addLast(j1[s]);
+        temp->addLast(j1[s]["Letra"]);
     }
     std::cout << "-----------------Lista Generada---------------" << std::endl;
     return temp;
