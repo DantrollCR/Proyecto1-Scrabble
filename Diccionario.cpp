@@ -29,11 +29,13 @@ std::string Diccionario::hacerString(Lista lista){ //esta funcion va dentro del 
     return palabra;
 }
 
-void Diccionario::generateJson(Lista lista) {
+json Diccionario::generateJson(Lista lista) {
     json j1;
     Nodo *temp;
     temp = lista.getHead();
-    int i = 0;
+    int i = 1;
+    j1["0"] = lista.size;
+
     while (temp != NULL) {
         std::string s = std::to_string(i);
         std::string s1(temp->letra);
@@ -42,15 +44,19 @@ void Diccionario::generateJson(Lista lista) {
         i++;
     }
     std::cout << j1.dump(2) << std::endl;
+    return j1;
 }
 
-void Diccionario::generateList(json j1) {
-    int i = 0;
-    std::string s = std::to_string(i);
-    while (j1[s] != false) {
-        std::cout << j1[s] << std::endl;
-    }
+Lista *Diccionario::generateList(json j1) {
+    Lista *temp = new Lista(); //la lista es recibida mediante el socket
+    int s = j1["0"];
 
+    for (int j = 1; j <= s + 1; ++j) {
+        std::string s = std::to_string(j);
+        temp->addLast(j1[s]);
+    }
+    std::cout << "-----------------Lista Generada---------------" << std::endl;
+    return temp;
 }
 bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionario
     std::cout << "Comparando palabra" <<std::endl;

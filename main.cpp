@@ -9,7 +9,8 @@
 using json = nlohmann::json;
 
 int main() {
-    Lista *ls = new Lista(); //la lista es recibida mediante el socket
+    Lista *ls = new Lista();
+    Lista *l2 = new Lista();//la lista es recibida mediante el socket
     //Lista *ls = listarecibida del socket
     Diccionario *dic = new Diccionario();
 
@@ -26,15 +27,19 @@ int main() {
 
 
     json j;
+    j["0"] = 1;
     j["1"] = "H";
+
 
     std::ofstream s("pretty.json");
     s << std::setw(4) << j << std::endl;
 
 
     ls->addLast(j["1"]);
-    dic->generateJson(*ls);
-    dic->generateList(j);
+
+    l2 = dic->generateList(dic->generateJson(*ls));
+    l2->addLast("D");
+    l2->vernodos();
     //ls->vernodos();
     dic->compararString(dic->hacerString(*ls));
     dic->calcularPuntaje(*ls);

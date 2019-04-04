@@ -11,6 +11,7 @@
  */
 
 Lista::Lista() {
+    size = 0;
     head = NULL;
     tail = NULL;
 }
@@ -47,7 +48,7 @@ void Lista::addLast(std::string dato) {
         while (last->next) last = last->next;
         last->next = temp;
     }
-
+    size++;
 }
 
 /**

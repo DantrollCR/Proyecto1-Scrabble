@@ -16,6 +16,7 @@ private:
 
 public:
 
+    int size;
 
     Lista(); //constructor
 
