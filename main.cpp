@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include "Lista.h"
 #include "Diccionario.h"
 
@@ -9,13 +10,21 @@ int main() {
 
     //ls->addFirst("Daniel");
 
-    ls->addLast("a");//agrega nodos a la lista
-    ls->addLast("b");
-    ls->addLast("c");
+    ls->addLast("V");//agrega nodos a la lista
+    ls->addLast("E");
+    ls->addLast("O");
+    ls->addLast("O");
+    ls->addLast("O");
+    ls->addLast("O");
+    ls->addLast("O");
+    ls->addLast("O");
+
+
 
     //ls->vernodos();
     dic->compararString(dic->hacerString(*ls));
     dic->calcularPuntaje(*ls);
+
 
 
 
