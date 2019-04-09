@@ -45,8 +45,13 @@ public:
 
     json generarJson();
 
+    int getPuntaje() const;
+
+    void setPuntaje(int puntaje);
+
 
 private:
+    int Puntaje;
     int IDJugador;
     int IDjuego;
     bool CrearJuego;

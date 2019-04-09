@@ -11,7 +11,6 @@
 #include "json.hpp"
 
 char *five_pts[] = {"V", "E", "R"};
-int size_six = 4;
 
 using json = nlohmann::json;
 
@@ -61,22 +60,37 @@ Lista *Diccionario::generateList(json j1) {
 }
 bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionario
     std::cout << "Comparando palabra" <<std::endl;
-    std::string s2("AVION");
-    if (s1.compare(s2)==0){
-        std::cout << "Eh verdá son igualeh" <<std::endl;
-        return true;
-    } else{
-        std::cout << "No son iguales" <<std::endl;
-        return false;
-    }
-/*    std::ifstream i("diccionario.json");
+    int size_of = 0;
+
+    std::ifstream i("diccionario.json");
     json j;
     i >> j;
+    
     char *llaves[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P",
                       "Q","R","S","T","U","V","W","X","Y","Z"};
-    int key = 0;
-    int Word =0;
-    while(key<26){}*/
+
+    for (int k = 0; k <= 26; ++k) {
+
+        size_of = 0;
+        int key = k;
+        std::string llave(llaves[key]);
+
+        while (size_of <= j[llave].size()) {
+            if (j[llave][size_of].is_null()) {
+                break;
+            } else if (s1.compare(j[llave][size_of]) == 0) {
+                std::cout << "La  palabra: " << s1 << ", es igual a: " << j[llave][size_of] << ", llave en json: "
+                          << size_of << std::endl;
+                return true;
+            } else {
+                size_of++;
+            }
+
+        }
+    }
+    std::cout << "Palabra no enconrtrada en Diccionario, puede preguntar al experto" << std::endl;
+    return false;
+
 }
 
 

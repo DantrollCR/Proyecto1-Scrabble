@@ -59,6 +59,14 @@ json Empaquetar::getCambios() {
     return Cambios;
 }
 
+int Empaquetar::getPuntaje() const {
+    return Puntaje;
+}
+
+void Empaquetar::setPuntaje(int puntaje) {
+    Puntaje = puntaje;
+}
+
 json Empaquetar::generarJsonEmpaquetado() {
     json empa;
 
