@@ -7,6 +7,7 @@
 #include <iostream>
 #include <cstring>
 #include <cstdio>
+#include <fstream>
 #include "json.hpp"
 
 char *five_pts[] = {"V", "E", "R"};
@@ -52,16 +53,15 @@ Lista *Diccionario::generateList(json j1) {
     Lista *temp = new Lista(); //la lista es recibida mediante el socket
     int s = j1["0"];
 
-    for (int j = 1; j <= s + 1; ++j) {
-        std::string s = std::to_string(j);
-        temp->addLast(j1[s]["Letra"]);
+    for (int j = 1; j <= s; ++j) {
+        std::string sq = std::to_string(j);
+        temp->addLetra(j1[sq]["Letra"]);
     }
-    std::cout << "-----------------Lista Generada---------------" << std::endl;
     return temp;
 }
 bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionario
     std::cout << "Comparando palabra" <<std::endl;
-    std::string s2("VER");
+    std::string s2("AVION");
     if (s1.compare(s2)==0){
         std::cout << "Eh verdá son igualeh" <<std::endl;
         return true;
@@ -69,7 +69,14 @@ bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionari
         std::cout << "No son iguales" <<std::endl;
         return false;
     }
-
+/*    std::ifstream i("diccionario.json");
+    json j;
+    i >> j;
+    char *llaves[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P",
+                      "Q","R","S","T","U","V","W","X","Y","Z"};
+    int key = 0;
+    int Word =0;
+    while(key<26){}*/
 }
 
 
@@ -81,6 +88,8 @@ void cuatroPts(std::string s1, int &ptrPun) {
 
             ptrPun += 4;
 
+        } else {
+            ptrPun += 0;
         }
     }
 

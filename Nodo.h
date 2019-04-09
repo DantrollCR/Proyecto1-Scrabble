@@ -10,17 +10,19 @@
 
 class Nodo {
 public:
-
+    int fil;
+    int col;
     std::string letra;
     Nodo *next;
 
+
     int getDato() const;
-    void setLetra(char *dato);
+
+    void setLetra(std::string letra);
 
     Nodo *getNext() const;
     void setNext(Nodo *next);
 
 };
-
 
 #endif //PROYECTO1_NODO_H

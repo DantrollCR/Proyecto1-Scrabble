@@ -5,10 +5,21 @@
 #include "Lista.h"
 #include "Diccionario.h"
 #include "json.hpp"
+#include "Empaquetar.h"
+#include "Server.h"
 
 using json = nlohmann::json;
 
 int main() {
+    Server *serv = new Server();
+    Empaquetar *paquete = new Empaquetar();
+    std::ifstream i("pretty.json");
+    json j;
+    i >> j;
+    paquete = serv->desempaquetar(j);
+    serv->comprobarDatos(j);
+
+    std::cout << paquete->getCambios().dump(2) << std::endl;
     Lista *ls = new Lista();
     Lista *l2 = new Lista();//la lista es recibida mediante el socket
     //Lista *ls = listarecibida del socket
@@ -16,29 +27,20 @@ int main() {
 
     //ls->addFirst("Daniel");
 
-    ls->addLast("V");//agrega nodos a la lista
-    ls->addLast("E");
-    ls->addLast("O");
-    ls->addLast("O");
-    ls->addLast("O");
-    ls->addLast("O");
-    ls->addLast("O");
-    ls->addLast("O");
+    ls->addLetra("A");//agrega nodos a la lista
+    ls->addLetra("V");
+    ls->addLetra("I");
+    ls->addLetra("O");
+    ls->addLetra("N");
 
-
-    json j;
-    j["0"] = 1;
-    j["1"] = "H";
-
-
-    std::ofstream s("pretty.json");
-    s << std::setw(4) << j << std::endl;
-
-
-    ls->addLast(j["1"]);
+    /*
+        std::ifstream i("file.json");
+        json j;
+        i >> j;
+     */
 
     l2 = dic->generateList(dic->generateJson(*ls));
-    l2->addLast("D");
+    l2->addLetra("D");
     l2->vernodos();
     //ls->vernodos();
     dic->compararString(dic->hacerString(*ls));

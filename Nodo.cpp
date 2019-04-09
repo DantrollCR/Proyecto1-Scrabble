@@ -4,6 +4,6 @@
 
 #include "Nodo.h"
 
-void Nodo::setLetra(char *dato) {
+void Nodo::setLetra(std::string dato) {
     letra = dato;
 }

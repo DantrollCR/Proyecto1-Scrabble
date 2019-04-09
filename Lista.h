@@ -20,25 +20,13 @@ public:
 
     Lista(); //constructor
 
-    void delete_last();
 
-    void delete_first();
+    void addLetra(std::string letra, int fila, int col);
 
-    void addFirst(char *valor);
+    void addLetra(std::string letra);
 
-    void addLast(std::string valor);
-
-    void addCollectorEnd(int *address);
-
+    void clear();
     void vernodos();
-
-    void vernodosGC();
-
-
-    void printCollector();
-
-    void deleteCollectorFirst();
-
     Nodo *getHead() const;
 
     void setHead(Nodo *head);
