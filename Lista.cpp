@@ -11,11 +11,19 @@
  */
 
 Lista::Lista() {
+    setId(0);
     size = 1;
     head = NULL;
     tail = NULL;
 }
 
+int Lista::getId() const {
+    return Id;
+}
+
+void Lista::setId(int id) {
+    Id = id;
+}
 
 /**
  * @brief Funcion que agrega un nodo al final de la lista, recibe un numero entero que será el valor que se almacene

@@ -13,6 +13,7 @@
 class Lista {
 private:
     Nodo *head, *tail;
+    int Id;
 
 public:
 
@@ -30,6 +31,10 @@ public:
     Nodo *getHead() const;
 
     void setHead(Nodo *head);
+
+    int getId() const;
+
+    void setId(int id);
 
 
 //

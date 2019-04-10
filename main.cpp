@@ -14,10 +14,15 @@ int main() {
     Server *serv = new Server();
     Empaquetar *paquete = new Empaquetar();
     Diccionario *dic = new Diccionario();
+    std::ifstream i("pretty.json");
+    json j;
+    i >> j;
+    json j2 = serv->hacerJsonString(j.dump());
+    paquete = serv->desempaquetar(j2);
+    Lista *list = dic->generateList(paquete->getCambios());
 
-    std::string d("Daniel");
-    std::cout << d[0] << std::endl;
-    bool esverda = dic->compararString("ZURZA");
+    bool esverda = dic->compararString(dic->hacerString(list));
+
     std::cout << esverda << std::endl;
 
 

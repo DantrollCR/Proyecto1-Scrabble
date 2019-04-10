@@ -26,7 +26,8 @@ public:
     Diccionario(); //constructor
 
     Lista *generateList(json j1);
-    std::string hacerString(Lista lista);
+
+    std::string hacerString(Lista *lista);
 
     json generateJson(Lista lista);
     bool compararString(std::string s1);
