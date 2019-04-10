@@ -19,11 +19,12 @@ int main() {
     i >> j;
     json j2 = serv->hacerJsonString(j.dump());
     paquete = serv->desempaquetar(j2);
+    int puntaje = dic->calcularPuntaje(paquete->getListaCambios());
     Lista *list = dic->generateList(paquete->getCambios());
 
     bool esverda = dic->compararString(dic->hacerString(list));
 
-    std::cout << esverda << std::endl;
+    std::cout << puntaje << std::endl;
 
 
 

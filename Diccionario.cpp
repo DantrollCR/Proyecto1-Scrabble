@@ -10,7 +10,8 @@
 #include <fstream>
 #include "json.hpp"
 
-char *five_pts[] = {"V", "E", "R"};
+
+
 
 using json = nlohmann::json;
 
@@ -106,33 +107,103 @@ bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionari
  * @param ptrPun
  */
 
-void cuatroPts(std::string s1, int &ptrPun) {
-    for (int i = 0; i < 3; ++i) {
+char *one_pt[] = {"A","E","O","I","S","N","L","R","U","T"};
+char *two_pt[] = {"D","G"};
+char *three_pt[] = {"C","B","M","P"};
+char *four_pt[] = {"H","F","V","Y"};
+char *five_pt[] = {"CH","E"};
+char *eigth_pt[] = {"J","LL","Ñ","RR","X"};
+char *ten_pt[] = {"Z"};
 
-        if (s1.compare(std::string(five_pts[i])) == 0) {
-            std::cout << s1 << " Es igual a: " << std::string(five_pts[i]) << ", Entonces sumo 4" << std::endl;
-
+void onePt(std::string s1, int &ptrPun) {
+    for (int i = 0; i < 10; ++i) {
+        if (s1.compare(std::string(one_pt[i])) == 0) {
+            std::cout << s1 << " Es igual a: " << std::string(one_pt[i]) << ", Entonces sumo 1" << std::endl;
+            ptrPun += 1;
+        } else {
+            ptrPun += 0;
+        }
+    }
+}
+void twoPt(std::string s1, int &ptrPun){
+    for (int i = 0; i < 2; ++i) {
+        if (s1.compare(std::string(two_pt[i])) == 0) {
+            std::cout << s1 << " Es igual a: " << std::string(two_pt[i]) << ", Entonces sumo 2" << std::endl;
+            ptrPun += 2;
+        } else {
+            ptrPun += 0;
+        }
+    }
+}
+void threePt(std::string s1, int &ptrPun){
+    for (int i = 0; i < 4; ++i) {
+        if (s1.compare(std::string(three_pt[i])) == 0) {
+            std::cout << s1 << " Es igual a: " << std::string(three_pt[i]) << ", Entonces sumo 3" << std::endl;
+            ptrPun += 3;
+        } else {
+            ptrPun += 0;
+        }
+    }
+}
+void fourPt(std::string s1, int &ptrPun){
+    for (int i = 0; i < 4; ++i) {
+        if (s1.compare(std::string(four_pt[i])) == 0) {
+            std::cout << s1 << " Es igual a: " << std::string(four_pt[i]) << ", Entonces sumo 4" << std::endl;
             ptrPun += 4;
+        } else {
+            ptrPun += 0;
+        }
+    }
+}
+void fivePt(std::string s1, int &ptrPun){
+    for (int i = 0; i < 2; ++i) {
+        if (s1.compare(std::string(five_pt[i])) == 0) {
+            std::cout << s1 << " Es igual a: " << std::string(five_pt[i]) << ", Entonces sumo 5" << std::endl;
+            ptrPun += 5;
+        } else {
+            ptrPun += 0;
+        }
+    }
+}
+void eightPt(std::string s1, int &ptrPun){
+    for (int i = 0; i < 5; ++i) {
+        if (s1.compare(std::string(eigth_pt[i])) == 0) {
+            std::cout << s1 << " Es igual a: " << std::string(eigth_pt[i]) << ", Entonces sumo 8" << std::endl;
+            ptrPun += 8;
+        } else {
+            ptrPun += 0;
+        }
+    }
+}
 
+void tenPt(std::string s1, int &ptrPun){
+        if (s1.compare(std::string(ten_pt[0])) == 0) {
+            std::cout << s1 << " Es igual a: " << std::string(ten_pt[0]) << ", Entonces sumo 10" << std::endl;
+            ptrPun += 10;
         } else {
             ptrPun += 0;
         }
     }
 
 
-}
-
-int Diccionario::calcularPuntaje(Lista lista) {
+int Diccionario::calcularPuntaje(Lista *lista) {
     int puntaje = 0;
     int &puntR = puntaje;
     Nodo *temp;
     int i = 0;
 
-    temp = lista.getHead();
+    temp = lista->getHead();
     while (temp != NULL) {
         std::string s1(temp->letra);
-        cuatroPts(s1, puntR);
+        onePt(s1, puntR);
+        twoPt(s1, puntR);
+        threePt(s1, puntR);
+        fourPt(s1, puntR);
+        fivePt(s1, puntR);
+        eightPt(s1, puntR);
+        tenPt(s1, puntR);
         temp = temp->next;
     }
-    std::cout << puntR << std::endl;
+    std::cout << "El puntaje de: "<<hacerString(lista)<<", es: "<< puntR << std::endl;
+    return puntaje;
 }

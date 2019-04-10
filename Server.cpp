@@ -21,7 +21,6 @@ Diccionario *dic = new Diccionario();
 json Server::hacerJsonString(std::string StringJson) {
     json j1;
     j1 = json::parse(StringJson);
-    std::cout << j1.dump(2) << std::endl;
     return j1;
 
 

@@ -31,7 +31,7 @@ public:
 
     json generateJson(Lista lista);
     bool compararString(std::string s1);
-    int calcularPuntaje(Lista Lista);
+    int calcularPuntaje(Lista *Lista);
 
 };
 
