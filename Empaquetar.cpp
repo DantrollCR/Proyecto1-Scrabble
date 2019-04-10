@@ -55,6 +55,14 @@ void Empaquetar::setCambios(json cambio) {
     Cambios = cambio;
 }
 
+Lista *Empaquetar::getListaCambios() const {
+    return ListaCambios;
+}
+
+void Empaquetar::setListaCambios(Lista *listaCambios) {
+    ListaCambios = listaCambios;
+}
+
 json Empaquetar::getCambios() {
     return Cambios;
 }

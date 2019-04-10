@@ -49,6 +49,10 @@ public:
 
     void setPuntaje(int puntaje);
 
+    Lista *getListaCambios() const;
+
+    void setListaCambios(Lista *listaCambios);
+
 
 private:
     int Puntaje;

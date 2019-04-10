@@ -5,10 +5,12 @@
 #include "Server.h"
 #include "json.hpp"
 #include "Empaquetar.h"
+#include "Diccionario.h"
 
 using json = nlohmann::json;
 
 Empaquetar *package;
+Diccionario *dic = new Diccionario();
 
 /**
  * Recibe un string, con formato de Json, y se encarga de convertilo en un objeto Json para
@@ -47,6 +49,7 @@ Empaquetar *Server::desempaquetar(json j1) {
     paquete->setActualizarJuego(refresh);
     paquete->setActualizado(refreshed);
     paquete->setCambios(lista);
+    paquete->setListaCambios(dic->generateList(lista));
     package = paquete;
     return paquete;
 }
