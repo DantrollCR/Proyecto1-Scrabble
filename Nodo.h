@@ -9,7 +9,10 @@
 #include <iostream>
 
 class Nodo {
+private:
+    int ID;
 public:
+
     int fil;
     int col;
     std::string letra;
@@ -22,6 +25,10 @@ public:
 
     Nodo *getNext() const;
     void setNext(Nodo *next);
+
+    int getId() const;
+
+    void setId(int id);
 
 };
 
