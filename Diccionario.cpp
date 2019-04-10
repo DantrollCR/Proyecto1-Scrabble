@@ -52,12 +52,19 @@ json Diccionario::generateJson(Lista lista) {
 Lista *Diccionario::generateList(json j1) {
     Lista *temp = new Lista(); //la lista es recibida mediante el socket
     int s = j1["0"];
+    if(s==1){
+        std::cout << "hello"<<std::endl;
 
+        temp->addLetra("NULL");
+        return temp;
+    }else{
     for (int j = 1; j <= s; ++j) {
         std::string sq = std::to_string(j);
         temp->addLetra(j1[sq]["Letra"]);
     }
-    return temp;
+        return temp;
+    }
+
 }
 
 /**

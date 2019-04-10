@@ -37,20 +37,31 @@ json Server::hacerJsonString(std::string StringJson) {
 Empaquetar *Server::desempaquetar(json j1) {
     Empaquetar *paquete = new Empaquetar();
     json lista = j1["JSON"];
-    int idGam = j1["IDGAME"];
-    int idPlay = j1["IDPLAYER"];
-    bool crearJuego = j1["CREATE"];
-    bool refresh = j1["REFRESH"];
-    bool refreshed = j1["REFRESHED"];
-    paquete->setIDjuego(idGam);
-    paquete->setIDJugador(idPlay);
-    paquete->setCrearJuego(crearJuego);
-    paquete->setActualizarJuego(refresh);
-    paquete->setActualizado(refreshed);
-    paquete->setCambios(lista);
-    paquete->setListaCambios(dic->generateList(lista));
-    package = paquete;
-    return paquete;
+
+
+    if(j1["JSON"]["0"]==1){
+        paquete->setListaCambios(dic->generateList(lista));
+
+        std::cout << "Lista vacía"<<std::endl;
+        return paquete;
+    }else{
+
+        int idGam = j1["IDGAME"];
+        int idPlay = j1["IDPLAYER"];
+        bool crearJuego = j1["CREATE"];
+        bool refresh = j1["REFRESH"];
+        bool refreshed = j1["REFRESHED"];
+        paquete->setIDjuego(idGam);
+        paquete->setIDJugador(idPlay);
+        paquete->setCrearJuego(crearJuego);
+        paquete->setActualizarJuego(refresh);
+        paquete->setActualizado(refreshed);
+        paquete->setCambios(lista);
+        paquete->setListaCambios(dic->generateList(lista));
+        package = paquete;
+        return paquete;
+    }
+
 }
 
 /**
