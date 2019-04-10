@@ -58,24 +58,38 @@ Lista *Diccionario::generateList(json j1) {
     }
     return temp;
 }
+
+/**
+ * La funcion recibe un string, generado convirtiendo una lista en un String,
+ * este stiring será comparado con todos las palabars contenidas en el Archivo Json
+ * Diccionario.json, si no se encuentra la palabra se procede a contactar al "experto"
+ * para validar la palabra.
+ *
+ * @param s1
+ * @return
+ */
+
 bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionario
-    std::cout << "Comparando palabra" <<std::endl;
+    std::cout << "Comparando palabra" << std::endl;
     int size_of = 0;
 
-    std::ifstream i("diccionario.json");
+    std::ifstream i("dicc.json");
     json j;
     i >> j;
-    
-    char *llaves[] = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P",
-                      "Q","R","S","T","U","V","W","X","Y","Z"};
 
-    for (int k = 0; k <= 26; ++k) {
+
+    char *llaves[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P",
+                      "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+    /*for (int k = 0; k <= 26; ++k) {
 
         size_of = 0;
         int key = k;
         std::string llave(llaves[key]);
-
+        transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+        std::cout << s1<<std::endl;
         while (size_of <= j[llave].size()) {
+
             if (j[llave][size_of].is_null()) {
                 break;
             } else if (s1.compare(j[llave][size_of]) == 0) {
@@ -87,12 +101,36 @@ bool Diccionario::compararString(std::string s1){ //aqui se revisa el diccionari
             }
 
         }
+    }*/
+
+    size_of = 0;
+    char llave[] = {s1[0]};
+
+    transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+    std::cout << s1 << std::endl;
+    while (size_of <= j[llave].size()) {
+        if (j[llave][size_of].is_null()) {
+            break;
+        } else if (s1.compare(j[llave][size_of]) == 0) {
+            std::cout << "La  palabra: " << s1 << ", es igual a: " << j[llave][size_of] << ", llave en json: "
+                      << size_of << std::endl;
+            return true;
+        } else {
+            size_of++;
+        }
+
     }
     std::cout << "Palabra no enconrtrada en Diccionario, puede preguntar al experto" << std::endl;
     return false;
 
 }
 
+/**
+ * El sistema de puntaje aun no esta elaborado por completo, sin embargo esta funcion
+ * hace lo que se necesita. Solo se deben hacer las funciones para los demás puntajes.
+ * @param s1
+ * @param ptrPun
+ */
 
 void cuatroPts(std::string s1, int &ptrPun) {
     for (int i = 0; i < 3; ++i) {

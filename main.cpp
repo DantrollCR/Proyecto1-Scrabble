@@ -15,7 +15,9 @@ int main() {
     Empaquetar *paquete = new Empaquetar();
     Diccionario *dic = new Diccionario();
 
-    bool esverda = dic->compararString("ZANAHORIA");
+    std::string d("Daniel");
+    std::cout << d[0] << std::endl;
+    bool esverda = dic->compararString("ZURZA");
     std::cout << esverda << std::endl;
 
 
