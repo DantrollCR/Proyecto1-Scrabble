@@ -26,6 +26,8 @@ public:
 
     void addLetra(std::string letra);
 
+    void addJugador(int id);
+
     void clear();
     void vernodos();
     Nodo *getHead() const;

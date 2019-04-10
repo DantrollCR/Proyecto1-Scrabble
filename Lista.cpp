@@ -50,6 +50,22 @@ void Lista::addLetra(std::string dato, int fila, int colum) {
     size++;
 }
 
+void Lista::addJugador(int id) {
+    Nodo *temp = new Nodo;
+    temp->setId(id);
+    temp->next = NULL;
+
+    if (!head) { //
+        head = temp;
+        return;
+    } else { // find last and link the new node
+        Nodo *last = head;
+        while (last->next) last = last->next;
+        last->next = temp;
+    }
+    size++;
+}
+
 void Lista::addLetra(std::string dato) {
     Nodo *temp = new Nodo;
     temp->letra = dato;
